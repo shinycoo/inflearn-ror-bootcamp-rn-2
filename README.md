@@ -7,18 +7,12 @@
     ----------------------------------------------------------------- 
 
 
-Welcome to your Rails project on Cloud9 IDE!
+인프런 강의의 Cloud9IDE를 위한 템플릿 Repo입니다.
 
-To get started, just do the following:
-
-1. Run the project with the "Run Project" button in the menu bar on top of the IDE.
-2. Preview your new app by clicking on the URL that appears in the Run panel below (https://rails-crud-sypark.c9users.io/).
-
-Happy coding!
-The Cloud9 IDE team
+## 유의사항!
+- 반드시 다음의 파일에 알맞은 정보를 넣고 실행하셔야 합니다.
+1. devise.rb의 278번째 줄: 페이스북의 APP ID와 SECRET KEY를 넣습니다.
+2. production.rb의 82,83,87번째 줄과 development.rb의 45,46,50번째 줄: 메일 건의 KEY와 도메인 정보와 사이트의 도메인(https://{여러분들의 프로젝트명-계정명}.c9users.io/)을 넣습니다.  
+3. application.html.erb 의 18번째 줄: 다음 지도 API의 키를 넣습니다.
 
 
-## Support & Documentation
-
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
