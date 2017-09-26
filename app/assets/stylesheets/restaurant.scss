@@ -1,0 +1,73 @@
+// Place all the styles related to the restaurant controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.clearfix:before, .widget-content:before, .posts:before, .post:before, .post-meta:before, .header-main:before, .header-top:before, .header-topbar:before, .promotion:before, .infobox:before, .agent-small:before, .agent-medium:before, .property-box-meta:before, .property-box-bottom:before, .property-medium-gallery:before, .property-large-content:before, .property-row:before, .property-row-meta:before, .property-valuation-values li:before, .clearfix:after, .widget-content:after, .posts:after, .post:after, .post-meta:after, .header-main:after, .header-top:after, .header-topbar:after, .promotion:after, .infobox:after, .agent-small:after, .agent-medium:after, .property-box-meta:after, .property-box-bottom:after, .property-medium-gallery:after, .property-large-content:after, .property-row:after, .property-row-meta:after, .property-valuation-values li:after {
+    content: " ";
+    display: table;
+}
+.content {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.property-row {
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+.property-row-image {
+    display: block;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.15);
+    display: block;
+    float: left;
+    height: 195px;
+    width: 25%;
+}
+.property-row-image img {
+    display: block;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%; 
+    object-fit: cover;
+}
+.property-row-content {
+    float: left;
+    margin-left: 4%;
+    min-height: 195px;
+    position: relative;
+    width: 70%;
+}
+.property-row-title a {
+    color: #424242;
+}
+.property-row-location {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    display: block;
+    list-style: none;
+    margin: 10px 0px 10px 0px;
+    padding: 0px 0px 10px 0px;
+}
+.property-row-location li {
+    display: inline;
+}
+.property-row-body {
+    color: #616161;
+}
+.property-row-meta {
+    background-color: #F5F5F5;
+    border-top: 1px solid #E0E0E0;
+    bottom: 0px;
+    left: -30px;
+    position: absolute;
+    right: 0;
+}
+.property-row-meta-item {
+    border-right: 1px solid #E0E0E0;
+    float: left;
+    font-size: 12px;
+    padding: 6px 20px;
+}
+.property-row-meta-item span {
+    margin: 0px 5px 0px 0px;
+}

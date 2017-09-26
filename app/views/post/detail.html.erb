@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="page-header">
+            <strong>상점명</strong>
+        </div>
+        <img class="detail-image" src="http://placehold.it/240x240">
+      </div>
+      <div class="col-md-9">
+        <div class="page-header">
+            <strong>리뷰의 제목이 들어갑니다.</strong>
+            <div class="pull-right">
+                <p class="list-group-item-text">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <span class="text-muted">by 사용자명</span>
+                </p>
+            </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="pull-right">
+                <span>수정</span> / 
+                <span>삭제</span>
+            </div>
+            리뷰의 내용입니다.
+            <div class="page-header">
+                <strong>댓글</strong>
+            </div>
+            <!-- List group -->
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span class="text-muted">[ <i class="fa fa-user"></i> 사용자 ] </span>
+                    댓글의 내용
+                    <span class="pull-right">삭제</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="text-muted">[ <i class="fa fa-user"></i> 사용자 ] </span>
+                    댓글의 내용
+                </li>
+                <li class="list-group-item">
+                    <span class="text-muted">[ <i class="fa fa-user"></i> 사용자 ] </span>
+                    댓글의 내용
+                </li>
+            </ul>
+            <form action="/comment/create" method="post">
+                <%= hidden_field_tag(request_forgery_protection_token.to_s, form_authenticity_token) %>
+                <input type="hidden" name="post" value="0">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="댓글을 입력해주세요.">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit">댓글 달기</button>
+                  </span>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

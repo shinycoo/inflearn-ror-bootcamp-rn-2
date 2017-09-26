@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+        <div class="page-header">
+            <h5><strong>리뷰 수정하기</strong></h5>
+        </div>
+        <form action="/post/update" method="post" enctype="multipart/form-data">
+            <%= hidden_field_tag(request_forgery_protection_token.to_s, form_authenticity_token) %>
+            <input type="hidden" name="id" value="<%=@post.id%>">
+            
+            <div class="form-group">
+                <label for="title">제목</label>
+                <input type="text" name="title" value="<%=@post.title%>" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="ratings">평가</label>
+                <br>
+                <label class="radio-inline">
+                  <input type="radio" name="ratings" id="ratings1" value="1"> 
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="ratings" id="ratings2" value="2"> 
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="ratings" id="ratings3" value="3"> 
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="ratings" id="ratings4" value="4"> 
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="ratings" id="ratings5" value="5"> 
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+            </div>
+            <hr>
+            
+            <div class="form-group">
+                <textarea name="contents" class="form-control" rows="10"><%=@post.contents%></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="image">사진</label>
+                <img src="<%=@post.image%>" style="width:200px;" class="img-thumbnail">
+                <input name="image" id="image" type="file" accept="image/jpg, image/jpeg, image/png">
+            </div>
+            <button type="submit" class="btn btn-success">수정하기!</button>
+        </form>

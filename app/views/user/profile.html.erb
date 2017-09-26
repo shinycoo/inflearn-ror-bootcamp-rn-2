@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4><strong>프로필 변경</strong></h4>
+    </div>
+    <div class="panel-body">
+        <form action="/user/profile" method="post" enctype="multipart/form-data">
+            <%= hidden_field_tag(request_forgery_protection_token.to_s, form_authenticity_token) %>
+            <div class="form-group">
+                <label for="name">이름</label>
+                <input name="name" type="text" value="<%=current_user.name%>" class="form-control">
+            </div>
+            <div class="form-group">
+            </div>
+            <div class="form-group">
+                <label for="profile">프로필 사진</label><br>
+                <img src="<%=current_user.profile%>" style="width:100px" class="img-thumbnail">
+                <input name="profile" type="file">
+            </div>
+            
+            <button type="submit" class="btn btn-info">수정</button>
+        </form>
+    </div>
+    </div>
+</div>
