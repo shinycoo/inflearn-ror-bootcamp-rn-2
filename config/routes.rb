@@ -40,5 +40,18 @@ Rails.application.routes.draw do
   get 'post/list'
   
   get 'post/detail'
-
+  
+  get 'mobile/list'
+  
+  get 'mobile/login'
+  post 'mobile/login'
+  
+  get 'mobile/facebook'
+  post 'mobile/facebook'
+  
+  get 'mobile/reviews'
+  
+  post 'mobile/push'
+  
+  get 'mobile/push_send'
 end

@@ -2,55 +2,52 @@
     <div class="row">
       <div class="col-md-3">
         <div class="page-header">
-            <strong>상점명</strong>
+            <strong><%=@post.restaurant.name%></strong>
         </div>
-        <img class="detail-image" src="http://placehold.it/240x240">
+        <img class="detail-image" src="<%=@post.image%>">
       </div>
       <div class="col-md-9">
         <div class="page-header">
-            <strong>리뷰의 제목이 들어갑니다.</strong>
+            <strong><%=@post.title%></strong>
             <div class="pull-right">
                 <p class="list-group-item-text">
                     <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                    <span class="text-muted">by 사용자명</span>
+                    <i class="fa fa-star<%= @post.ratings > 1 ? '' : '-o' %>" aria-hidden="true"></i>
+                    <i class="fa fa-star<%= @post.ratings > 2 ? '' : '-o' %>" aria-hidden="true"></i>
+                    <i class="fa fa-star<%= @post.ratings > 3 ? '' : '-o' %>" aria-hidden="true"></i>
+                    <i class="fa fa-star<%= @post.ratings > 4 ? '' : '-o' %>" aria-hidden="true"></i>
+                    <span class="text-muted">by <%= @post.user.name %></span>
                 </p>
             </div>
         </div>
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="pull-right">
-                <span>수정</span> / 
-                <span>삭제</span>
+                <span><%= link_to '수정', post_modify_path(:id => @post.id) %></span> / 
+                <span><%= link_to '삭제', post_delete_path(:id => @post.id) %></span>
             </div>
-            리뷰의 내용입니다.
+            
+            <%=@post.contents%>
+            
             <div class="page-header">
                 <strong>댓글</strong>
             </div>
             <!-- List group -->
             <ul class="list-group">
+                <% for comment in @post.comments %>
                 <li class="list-group-item">
-                    <span class="text-muted">[ <i class="fa fa-user"></i> 사용자 ] </span>
-                    댓글의 내용
-                    <span class="pull-right">삭제</span>
+                    <span class="text-muted">[ <i class="fa fa-user"></i> <%=comment.user.name%> ] </span>
+                    <%=comment.contents%>
+                    <span class="pull-right"><%= link_to '삭제', comment_delete_path(:id => comment.id) %></span>
                 </li>
-                <li class="list-group-item">
-                    <span class="text-muted">[ <i class="fa fa-user"></i> 사용자 ] </span>
-                    댓글의 내용
-                </li>
-                <li class="list-group-item">
-                    <span class="text-muted">[ <i class="fa fa-user"></i> 사용자 ] </span>
-                    댓글의 내용
-                </li>
+                <% end %>
+                
             </ul>
             <form action="/comment/create" method="post">
                 <%= hidden_field_tag(request_forgery_protection_token.to_s, form_authenticity_token) %>
-                <input type="hidden" name="post" value="0">
+                <input type="hidden" name="post" value="<%=@post.id%>">
                 <div class="input-group">
-                  <input type="text" class="form-control" placeholder="댓글을 입력해주세요.">
+                  <input name="contents" type="text" class="form-control" placeholder="댓글을 입력해주세요.">
                   <span class="input-group-btn">
                     <button class="btn btn-default" type="submit">댓글 달기</button>
                   </span>

@@ -5,7 +5,7 @@
         </div>
         <form action="/post/create" method="post" enctype="multipart/form-data">
             <%= hidden_field_tag(request_forgery_protection_token.to_s, form_authenticity_token) %>
-            <input type="hidden" name="restaurant" value="0">
+            <input type="hidden" name="restaurant" value="<%=@restaurant.id%>">
             <div class="form-group">
                 <label for="title">제목</label>
                 <input type="text" name="title" class="form-control">

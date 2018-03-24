@@ -15,29 +15,29 @@
                 <label for="ratings">평가</label>
                 <br>
                 <label class="radio-inline">
-                  <input type="radio" name="ratings" id="ratings1" value="1"> 
+                  <input type="radio" name="ratings" id="ratings1" value="1" <% if @post.ratings == 1 %> checked="checked" <% end %>> 
                   <i class="fa fa-star" aria-hidden="true"></i>
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="ratings" id="ratings2" value="2"> 
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="ratings" id="ratings3" value="3"> 
-                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <input type="radio" name="ratings" id="ratings2" value="2" <% if @post.ratings == 2 %> checked="checked" <% end %>> 
                   <i class="fa fa-star" aria-hidden="true"></i>
                   <i class="fa fa-star" aria-hidden="true"></i>
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="ratings" id="ratings4" value="4"> 
-                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <input type="radio" name="ratings" id="ratings3" value="3" <% if @post.ratings == 3 %> checked="checked" <% end %>> 
                   <i class="fa fa-star" aria-hidden="true"></i>
                   <i class="fa fa-star" aria-hidden="true"></i>
                   <i class="fa fa-star" aria-hidden="true"></i>
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="ratings" id="ratings5" value="5"> 
+                  <input type="radio" name="ratings" id="ratings4" value="4" <% if @post.ratings == 4 %> checked="checked" <% end %>> 
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="ratings" id="ratings5" value="5" <% if @post.ratings == 5 %> checked="checked" <% end %>> 
                   <i class="fa fa-star" aria-hidden="true"></i>
                   <i class="fa fa-star" aria-hidden="true"></i>
                   <i class="fa fa-star" aria-hidden="true"></i>

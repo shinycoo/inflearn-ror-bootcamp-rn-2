@@ -2,25 +2,24 @@ class PostController < ApplicationController
   before_action :authenticate_user!, except: [ :list, :detail ]
   
   def create
+    @restaurant = Restaurant.find(params[:restaurant])
+    
     _title = params[:title]
     _contents = params[:contents]
+    _ratings = params[:ratings]
+    _image = params[:image]
     
-    _lat = params[:lat]
-    _lng = params[:lng]
-    _address = params[:address]
-    
-    post = Post.new(title: _title, contents: _contents) ## record / row
-    post.user = current_user 
-    post.lat = _lat
-    post.lng = _lng
-    post.address = _address
+    post = Post.new(title: _title, contents: _contents, ratings: _ratings)
+    post.user = current_user
+    post.restaurant = @restaurant
+    post.image = _image
     post.save
     
-    redirect_to controller:'post', action:'list'
+    redirect_to controller:'restaurant', action:'detail', id: @restaurant.id
   end
 
   def new
-    
+    @restaurant = Restaurant.find(params[:id])
   end
   
   def list
@@ -36,20 +35,26 @@ class PostController < ApplicationController
     
   end
   
-  def update 
+  def update ## validation required
     _id = params[:id]
     _title = params[:title]
     _contents = params[:contents]
+    _ratings = params[:ratings]
     
     post = Post.find(_id)
     authorize_action_for post
     
+    post.ratings = _ratings
     post.title = _title
     post.contents = _contents
     
+    if params[:image]
+      post.image = params[:image]
+    end
+    
     post.save
     
-    redirect_to controller: 'post', action: 'list'
+    redirect_to controller: 'post', action: 'detail', id: post.id
   end
   
   def delete
@@ -58,12 +63,14 @@ class PostController < ApplicationController
     post = Post.find(_id)
     authorize_action_for post
     
+    restaurant_id = post.restaurant.id
+    
     post.destroy
     
-    redirect_to controller: 'post', action: 'list'
+    redirect_to controller: 'restaurant', action: 'detail', id: restaurant_id
   end
   
   def detail
-    
+    @post = Post.find(params[:id])
   end
 end
